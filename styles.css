@@ -1,0 +1,273 @@
+/* Matine & Co Accountants – site styles */
+
+:root {
+  --bg: #f5f8f8;
+  --surface: #ffffff;
+  --text: #17282c;
+  --muted: #4f6267;
+  --line: #dbe4e6;
+  --teal: #1f6f7c;
+  --teal-dark: #174f58;
+  --teal-tint: #e8f2f4;
+  --green: #4f9d2f;
+  --red: #d33a2f;
+  --radius: 12px;
+  --max: 1040px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--teal); }
+img { max-width: 100%; height: auto; }
+address { font-style: normal; }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #fff;
+  padding: 8px 12px;
+}
+.skip:focus { left: 8px; top: 8px; z-index: 10; }
+
+/* Header */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+}
+.brand img { width: 52px; height: 52px; }
+.brand b { display: block; font-size: 1.15rem; line-height: 1.1; }
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.site-nav { display: flex; gap: 22px; margin-left: auto; }
+.site-nav a { text-decoration: none; color: var(--text); font-weight: 500; }
+.site-nav a:hover { color: var(--teal); }
+.header-phone {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--teal-dark);
+  white-space: nowrap;
+}
+.header-phone:hover { color: var(--teal); }
+
+@media (max-width: 640px) {
+  .site-header .container { gap: 12px 20px; }
+  .header-phone { margin-left: auto; }
+  .site-nav { margin-left: 0; width: 100%; order: 3; gap: 18px; }
+}
+
+/* Hero */
+
+.hero {
+  padding: 72px 0 64px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+}
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--teal);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+h1 {
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  line-height: 1.12;
+  margin: 0 0 18px;
+  letter-spacing: -.01em;
+}
+.lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 34em;
+}
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-logo { justify-self: center; }
+.hero-logo img { width: min(300px, 70vw); }
+
+@media (max-width: 760px) {
+  .hero { padding: 40px 0 48px; }
+  .hero .container { grid-template-columns: 1fr; gap: 24px; }
+  .hero-logo { order: -1; justify-self: start; }
+  .hero-logo img { width: 130px; }
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--teal);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+.btn-secondary { background: #fff; color: var(--teal); }
+.btn-secondary:hover { background: var(--teal-tint); }
+
+/* Sections */
+
+section { padding: 64px 0; }
+h2 { font-size: 1.9rem; margin: 0 0 8px; letter-spacing: -.01em; }
+.section-intro { color: var(--muted); margin: 0 0 32px; max-width: 40em; }
+.note { color: var(--muted); margin: 28px 0 0; }
+
+/* Services */
+
+.services {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+}
+.services li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.services li::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--green);
+  margin-bottom: 16px;
+}
+.services li:nth-child(even)::before { background: var(--teal); }
+.services h3 { margin: 0 0 8px; font-size: 1.15rem; }
+.services p { margin: 0; color: var(--muted); }
+
+/* About */
+
+.about { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.about .container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.about p { margin: 0 0 14px; }
+.credentials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.credentials li {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+}
+.credentials b { display: block; }
+.credentials span { color: var(--muted); font-size: .95rem; }
+
+@media (max-width: 760px) {
+  .about .container { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* Contact */
+
+.contact { background: var(--teal-dark); color: #fff; }
+.contact h2 { color: #fff; }
+.contact .section-intro { color: #cfe3e7; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.contact dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 24px;
+}
+.contact dt {
+  color: #a9cbd2;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding-top: 5px;
+}
+.contact dd { margin: 0; font-size: 1.1rem; }
+.contact a { color: #fff; text-decoration-color: #7fb5bf; }
+.contact-actions { display: grid; gap: 12px; justify-items: start; }
+.contact .btn { border-color: #fff; }
+.contact .btn-primary { background: #fff; color: var(--teal-dark); }
+.contact .btn-primary:hover { background: #e3eff1; border-color: #e3eff1; }
+.contact .btn-secondary { background: transparent; color: #fff; }
+.contact .btn-secondary:hover { background: rgba(255, 255, 255, .12); }
+
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+}

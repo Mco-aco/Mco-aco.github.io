@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Matine;Mhamed;;;
+FN:Mhamed Matine
+ORG:Matine & Co Accountants
+TITLE:Certified Accountant & Tax Adviser
+TEL;TYPE=WORK,VOICE:+442080874606
+TEL;TYPE=CELL,VOICE:+447809772835
+TEL;TYPE=WORK,FAX:+442080874606
+EMAIL;TYPE=INTERNET,WORK:gmatine@gmail.com
+ADR;TYPE=WORK:;;9 Bell Street;London;;NW1 5BY;United Kingdom
+URL:https://mco-aco.github.io/
+END:VCARD
